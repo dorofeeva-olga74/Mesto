@@ -15,8 +15,6 @@
 
 @media screen and (max-width:650px) {
   .profile__add-button_plus {
-    width: 11.718vw;
-    height: 3.9vw;
     padding: 17px 133px;
     margin: 36px 19px 0 19px;
     box-sizing: border-box;
