@@ -8,6 +8,5 @@
 -Адаптивная верстка
 -Медиазапросы
 -Java Script
-[Прoект на Github:](https://dorofeeva-olga74.github.io/mesto/)
-
-
+[Прoект на Github:](https://dorofeeva-olga74.github.io/Mesto/)
+https://github.com/dorofeeva-olga74/Mesto/
