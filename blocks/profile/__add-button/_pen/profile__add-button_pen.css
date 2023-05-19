@@ -1,0 +1,13 @@
+.profile__add-button_pen {
+    min-width: 24px;
+    min-height: 24px;
+    padding: 7px;
+}
+
+@media screen and (max-width:410px) {
+    .profile__add-button_pen {
+        min-width: 18px;
+        min-height: 18px;
+        padding: 5.25px;
+    }
+}

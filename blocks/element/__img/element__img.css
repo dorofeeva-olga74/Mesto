@@ -1,0 +1,14 @@
+.element__img {
+    width: 100%;
+    display: grid;
+    overflow: hidden;
+    background-size: contain;
+    object-fit: cover;
+}
+
+@media screen and (max-width:550px) {
+    .element__img {
+        max-width: 100%;
+        max-height: 100%;
+    }
+}
