@@ -5,6 +5,8 @@
     background-repeat: no-repeat;
     border: none;
     cursor: pointer;
+    margin: 0;
+    display: flex;
 }
 
 .element__vector:hover {

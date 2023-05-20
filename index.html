@@ -7,13 +7,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Место Россия</title>
   <link rel="stylesheet" type="text/css" href="./pages/index.css">
-  <script src="./index.js" defer></script>
+  <script src="./scripts/index.js" defer></script>
 </head>
 
 <body class="page">
   <header class="header">
     <img class="header__logo" src="./images/Logo.png" alt="Логотип сайта">
-    <hr class="header__line">_______
   </header>
   <main class="content">
     <div class="profile">
@@ -24,7 +23,7 @@
           <button id="open-popup-button" type="button" class="profile__add-button profile__add-button_pen"><img
               class="profile__vector" src="./images/Vector.png" alt="Карандаш"></button>
           <p class="profile__subtitle">Исследователь океана</p>
-          <div id="edit-popup" class="popup popup_is-opened">
+          <div id="edit-popup" class="popup popup__overlay">
             <div class="popup__content">
               <form action="#" id="edit-form" class="popup__form">
                 <h2 class="popup__title">Редактировать профиль</h2>
@@ -37,50 +36,49 @@
           </div>
         </div>
       </div>
-      <button id="open-popup-button-plus" type="button" class="profile__add-button profile__add-button_plus"> +
-      </button>
+      <button id="open-popup-button-plus" type="button" class="profile__add-button profile__add-button_plus"></button>
     </div>
     <div class="elements">
       <div class="element">
         <img class="element__img" src="./images/Karachaevsk.png" alt="Старинная крепость на фоне горы">
         <div class="element__card">
-          <p class="element__title">Карачаевск</p>
-          <button id="like-button1" class="element__vector"></button>
+          <h2 class="element__title">Карачаевск</h2>
+          <button id="like-button1" type="button" class="element__vector"></button>
         </div>
       </div>
       <div class="element">
         <img class="element__img" src="./images/Elbrus.png" alt="Гора Эльбрус на фоне заката солнца">
         <div class="element__card">
-          <p class="element__title">Гора Эльбрус</p>
-          <button id="like-button2" class="element__vector"></button>
+          <h2 class="element__title">Гора Эльбрус</h2>
+          <button id="like-button2" type="button" class="element__vector"></button>
         </div>
       </div>
       <div class="element">
         <img class="element__img" src="./images/Dombay.png" alt="горная территория Домбай">
         <div class="element__card">
-          <p class="element__title">Домбай</p>
-          <button id="like-button3" class="element__vector"></button>
+          <h2 class="element__title">Домбай</h2>
+          <button id="like-button3" type="button" class="element__vector"></button>
         </div>
       </div>
       <div class="element">
         <img class="element__img" src="./images/Elbrus.png" alt="Гора Эльбрус на фоне заката солнца">
         <div class="element__card">
-          <p class="element__title">Гора Эльбрус</p>
-          <button id="like-button4" class="element__vector"></button>
+          <h2 class="element__title">Гора Эльбрус</h2>
+          <button id="like-button4" type="button" class="element__vector"></button>
         </div>
       </div>
       <div class="element">
         <img class="element__img" src="./images/Dombay.png" alt="горная территория Домбай">
         <div class="element__card">
-          <p class="element__title">Домбай</p>
-          <button id="like-button5" class="element__vector"></button>
+          <h2 class="element__title">Домбай</h2>
+          <button id="like-button5" type="button" class="element__vector"></button>
         </div>
       </div>
       <div class="element">
         <img class="element__img" src="./images/Karachaevsk.png" alt="Старинная крепость на фоне горы">
         <div class="element__card">
-          <p class="element__title">Карачаево-Черкесская Республика РФ</p>
-          <button id="like-button6" class="element__vector"></button>
+          <h2 class="element__title">Карачаево-Черкесская Республика РФ</h2>
+          <button id="like-button6" type="button" class="element__vector"></button>
         </div>
       </div>
     </div>

@@ -7,7 +7,7 @@
   color: #FFFFFF;
   margin: 0;
   padding: 0;
-  text-align: left;
+  text-align:justify;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;

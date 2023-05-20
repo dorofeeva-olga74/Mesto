@@ -16,9 +16,6 @@ closePopupButton.addEventListener("click", function () {
     closePopup(editPopup);
 });
 
-nameInput.value = popupTitle.textContent;
-proffessionInput.value = popupSubtitle.textContent;
-
 editForm.addEventListener("submit", function (event) {
     event.preventDefault();
     popupTitle.textContent = nameInput.value;
@@ -27,9 +24,11 @@ editForm.addEventListener("submit", function (event) {
 });
 
 function openPopup(popup) {
-    popup.classList.add("popup_is-opened");
+    popup.classList.add("popup__overlay");
+    nameInput.value = popupTitle.textContent;
+    proffessionInput.value = popupSubtitle.textContent;
 }
 
 function closePopup(popup) {
-    popup.classList.remove("popup_is-opened");
+    popup.classList.remove("popup__overlay");
 }
