@@ -12,7 +12,6 @@
 
 @media screen and (max-width:1024px) {
   .profile__button_add-plus {
-    max-width: calc(100% - 19px*2);
     padding: 17px 133px;
     margin: 36px 19px 0 19px;
     background-image: url(./../../../../images/plus-big.svg);
