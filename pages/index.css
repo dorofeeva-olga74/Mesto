@@ -7,7 +7,6 @@
 /*header*/
 @import url(../blocks/header/header.css);
 @import url(../blocks/header/__logo/header__logo.css);
-@import url(../blocks/header/__line/header__line.css);
 /*content*/
 @import url(../blocks/content/content.css);
 /*profile*/
@@ -17,11 +16,10 @@
 @import url(../blocks/profile/__group/profile__group.css);
 @import url(../blocks/profile/__title/profile__title.css);
 @import url(../blocks/profile/__subtitle/profile__subtitle.css);
-@import url(../blocks/profile/__add-button/profile__add-button.css);
-@import url(../blocks/profile/__add-button/_pen/profile__add-button_pen.css);
-@import url(../blocks/profile/__add-button/_plus/profile__add-button_plus.css);
+@import url(../blocks/profile/__button/profile__button.css);
+@import url(../blocks/profile/__button/_add-change/profile__button_add-change.css);
+@import url(../blocks/profile/__button/_add-plus/profile__button_add-plus.css);
 @import url(../blocks/profile/__vector/profile__vector.css);
-@import url(../blocks/profile/__add-button/profile__add-button.css);
 /*elements*/
 @import url(../blocks/elements/elements.css);
 /*element*/
@@ -35,12 +33,11 @@
 @import url(../blocks/footer/__text/footer__text.css);
 /*popup*/
 @import url(../blocks/popup/popup.css);
-@import url(../blocks/popup/__content/popup__content.css);
+@import url(../blocks/popup/__edit-form/popup__edit-form.css);
 @import url(../blocks/popup/__form/popup__form.css);
 @import url(../blocks/popup/__title/popup__title.css);
 @import url(../blocks/popup/__input/popup__input.css);
-@import url(../blocks/popup/__input/_proffession/popup__input_proffession.css);
 @import url(../blocks/popup/__button/popup__button.css);
 @import url(../blocks/popup/__close-button/popup__close-button.css);
 @import url(../blocks/popup/__button/popup__button.css);
-@import url(../blocks/popup/__overlay/popup__overlay.css);
+@import url(../blocks/popup/_open/popup_open.css);

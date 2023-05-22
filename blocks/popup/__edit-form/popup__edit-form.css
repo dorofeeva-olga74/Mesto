@@ -1,8 +1,8 @@
-.popup__content {
+.popup__edit-form {
     background-color: #fff;
     border-radius: 10px;
     position: relative;
     margin: 0;
     padding: 0;
-    max-width: calc(100% - 19px*2);
+    max-width: 100%;
 }

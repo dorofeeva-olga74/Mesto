@@ -8,14 +8,6 @@ const proffessionInput = document.querySelector("#proffession-input");
 const editForm = document.querySelector("#edit-form");
 
 
-openPopupButton.addEventListener("click", function () {
-    openPopup(editPopup);
-});
-
-closePopupButton.addEventListener("click", function () {
-    closePopup(editPopup);
-});
-
 editForm.addEventListener("submit", function (event) {
     event.preventDefault();
     popupTitle.textContent = nameInput.value;
@@ -24,11 +16,19 @@ editForm.addEventListener("submit", function (event) {
 });
 
 function openPopup(popup) {
-    popup.classList.add("popup__overlay");
+    popup.classList.add("popup_open");
     nameInput.value = popupTitle.textContent;
     proffessionInput.value = popupSubtitle.textContent;
 }
 
 function closePopup(popup) {
-    popup.classList.remove("popup__overlay");
+    popup.classList.remove("popup_open");
 }
+
+openPopupButton.addEventListener("click", function () {
+    openPopup(editPopup);
+});
+
+closePopupButton.addEventListener("click", function () {
+    closePopup(editPopup);
+});
