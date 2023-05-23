@@ -16,13 +16,13 @@ editForm.addEventListener("submit", function (event) {
 });
 
 function openPopup(popup) {
-    popup.classList.add("popup_open");
+    popup.classList.add("popup_opened");
     nameInput.value = popupTitle.textContent;
     proffessionInput.value = popupSubtitle.textContent;
 }
 
 function closePopup(popup) {
-    popup.classList.remove("popup_open");
+    popup.classList.remove("popup_opened");
 }
 
 openPopupButton.addEventListener("click", function () {

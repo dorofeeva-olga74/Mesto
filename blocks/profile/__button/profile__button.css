@@ -5,6 +5,10 @@
    align-items: center;
    justify-content: center;
    align-self: center;
+   box-sizing: border-box;
+   border: 1px solid #FFFFFF;
+   background-repeat: no-repeat;
+   background-position: center;
 }
 
 .profile__button:hover {
