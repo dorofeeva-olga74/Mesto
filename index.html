@@ -22,66 +22,61 @@
           <h1 class="profile__title">Жак-Ив Кусто</h1>
           <button id="open-popup-button" type="button" class="profile__button profile__button_add_change">
           </button>
-          <p class="profile__subtitle">Исследователь океана</p>          
+          <p class="profile__subtitle">Исследователь океана</p>
         </div>
       </div>
-      <button id="open-popup-button-plus" type="button" class="profile__button profile__button_add_card">
+      <button id="open-popup-button-add-card" type="button" class="profile__button profile__button_add_card">
       </button>
     </section>
     <section class="elements">
-      <div class="element">
-        <img class="element__img" src="./images/Karachaevsk.png" alt="Старинная крепость на фоне горы">
-        <div class="element__card">
-          <h2 class="element__title">Карачаевск</h2>
-          <button id="like-buttonKarachaevsk" type="button" class="element__vector"></button>
-        </div>
-      </div>
-      <div class="element">
-        <img class="element__img" src="./images/Elbrus.png" alt="Гора Эльбрус на фоне заката солнца">
-        <div class="element__card">
-          <h2 class="element__title">Гора Эльбрус</h2>
-          <button id="like-buttonElbrus" type="button" class="element__vector"></button>
-        </div>
-      </div>
-      <div class="element">
-        <img class="element__img" src="./images/Dombay.png" alt="горная территория Домбай">
-        <div class="element__card">
-          <h2 class="element__title">Домбай</h2>
-          <button id="like-buttonDombay" type="button" class="element__vector"></button>
-        </div>
-      </div>
-      <div class="element">
-        <img class="element__img" src="./images/Elbrus.png" alt="Гора Эльбрус на фоне заката солнца">
-        <div class="element__card">
-          <h2 class="element__title">Гора Эльбрус</h2>
-          <button id="like-buttonGora" type="button" class="element__vector"></button>
-        </div>
-      </div>
-      <div class="element">
-        <img class="element__img" src="./images/Dombay.png" alt="горная территория Домбай">
-        <div class="element__card">
-          <h2 class="element__title">Домбай</h2>
-          <button id="like-buttonDombay2" type="button" class="element__vector"></button>
-        </div>
-      </div>
-      <div class="element">
-        <img class="element__img" src="./images/Karachaevsk.png" alt="Старинная крепость на фоне горы">
-        <div class="element__card">
-          <h2 class="element__title">Карачаево-Черкесская Республика РФ</h2>
-          <button id="like-buttonRespublika" type="button" class="element__vector"></button>
-        </div>
-      </div>
     </section>
+    <!--Popup для добавления формы карточки-->
+    <div id="popup-add-place" class="popup popup__add-place">
+      <div class="popup__container">
+        <form action="#" name="add-place-form" id="add-place-form" class="popup__edit-form popup__add-place">
+          <h2 class="popup__title popup__title_place">Новое место</h2>
+          <input id="place-input" type="text" name="name" class="popup__input popup__input_place" placeholder="Название"
+            value="" autocomplete="on">
+          <input id="link-imput" type="text" name="link" class="popup__input popup__link_imput popup__input_place"
+            placeholder="Ссылка на картинку" value="" autocomplete="on">
+          <button id="save-add-place" type="submit" class="popup__button">Сохранить</button>
+        </form>
+        <button id="close-popup-button-add-card" type="button" aria-label="Закрыть"
+          class="popup__close-button"></button>
+      </div>
+    </div>
+    <!--Форма карточки-->
+    <template id="template">
+      <article class="template__element element">
+        <button id="delete-button" class="element__delete" type="reset"></button>
+        <button id="show-image" class="element__show-img" type="button">
+          <img class="template__img element__img" src=" " alt=" ">
+        </button>
+        <div class="template__card element__card">
+          <h2 class="element__title template__title"></h2>
+          <button id="like-button" type="button" class="template__like element__like"></button>
+        </div>
+      </article>
+    </template>
   </main>
   <footer class="footer">
     <p class="footer__text">© 2020 Mesto Russia</p>
   </footer>
+  <!-- Popup просмотра картинки-->
+  <section id="popup-img" class="popup popup__img">
+    <div class="popup__container popup__container_img">
+      <img class="popup__image element__img" src="#" alt="Место">
+      <h2 class="popup__title_img element__title">Место</h2>
+      <button id="close-popup-img" type="button" aria-label="Закрыть" class="popup__close-button"></button>
+    </div>
+  </section>
+  <!--Popup для заполнения формы профиля-->
   <div id="edit-popup" class="popup">
     <div class="popup__container">
       <form action="#" name="edit-form" id="edit-form" class="popup__edit-form">
         <h2 class="popup__title">Редактировать профиль</h2>
-        <input id="name-input" type="text" name="name-input" class="popup__input">
-        <input id="proffession-input" type="text" name="name-input" class="popup__input">
+        <input id="name-input" type="text" name="name-input" class="popup__input" autocomplete="on">
+        <input id="proffession-input" type="text" name="name-input" class="popup__input" autocomplete="on">
         <button type="submit" class="popup__button">Сохранить</button>
       </form>
       <button id="close-popup-button" type="button" aria-label="Закрыть" class="popup__close-button"></button>

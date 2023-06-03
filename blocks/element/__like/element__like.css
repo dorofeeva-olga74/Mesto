@@ -1,4 +1,4 @@
-.element__vector {
+.element__like {
     min-width: 22px;
     min-height: 19px;
     background: url("./../../../images/Serdce.svg");
@@ -9,12 +9,7 @@
     display: flex;
 }
 
-.element__vector:hover {
+.element__like:hover {
     opacity: 0.5;
     transition: all linear 0.2s;
-}
-
-.element__vector:active {
-    background: url("./../../../images/Black-serdce.svg");
-    opacity: 1;
 }
