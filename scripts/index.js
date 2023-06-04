@@ -34,8 +34,8 @@ closePopupButton.addEventListener("click", function () {
 const openPopupButtonAddCard = document.querySelector('#open-popup-button-add-card');
 const closePopupButtonAddCard = document.querySelector('#close-popup-button-add-card');
 const popupAddPlace = document.querySelector('#popup-add-place');
-const popupTitlePlace = document.querySelector(".element__title");
-const popupImagePlace = document.querySelector(".element__img");
+const popupTitlePlace = document.querySelector("#popupNameImg");
+const popupImagePlace = document.querySelector(".popup__image");
 const placeInput = document.querySelector('#place-input');
 const linkImput = document.querySelector("#link-imput");
 const addPlaceForm = document.querySelector('#add-place-form');//formElement
@@ -103,7 +103,7 @@ function createInitialCards(name, link) {  //функция создает но�
   const templateTitle = newElement.querySelector('.element__title');
   const like = newElement.querySelector('.element__like');
   const popupImage = document.querySelector('.popup__image');//нашла фото в попапе
-  const figcaption = document.querySelector('.popup__title_img');//нашла подпись к фото в попапе
+  const figcaption = document.querySelector('.popup__name-img');//нашла подпись к фото в попапе
   const imagePopup = document.querySelector('#popup-img'); // нашла попап для открытия фото
 
   templateImage.src = link;//для добавления в новую карточку картинки 
@@ -118,13 +118,7 @@ function createInitialCards(name, link) {  //функция создает но�
   const deleteButton = newElement.querySelector('.element__delete');
   deleteButton.addEventListener('click', function (evt) {
     elements.removeChild(newElement);
-  }); 
-
-  /*добавление анимации для открытия попапов*/
-  const PopupTransform = document.querySelector('.popup');
-  PopupTransform.addEventListener('click', function (evt) {
-    evt.target.classList.toggle('popup_button_active');
-  });
+  });  
   /*раскрывается popup для всплывающей картинки*/
   templateImage.addEventListener('click', function (evt) {
     openPopup(imagePopup);
