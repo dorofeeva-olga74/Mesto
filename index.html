@@ -30,30 +30,29 @@
     </section>
     <section class="elements">
     </section>
-    <!--Popup для добавления формы карточки-->
-    <div id="popup-add-place" class="popup popup__add-place">
+      <!--Popup для добавления формы карточки-->
+    <div  class="popup" id="popup-add-place">
       <div class="popup__container">
         <form action="#" name="add-place-form" id="add-place-form" class="popup__edit-form popup__add-place">
           <h2 class="popup__title popup__title_place">Новое место</h2>
           <input id="place-input" type="text" name="name" class="popup__input popup__input_place" placeholder="Название"
             value="" autocomplete="on">
-          <input id="link-imput" type="text" name="link" class="popup__input popup__link_imput popup__input_place"
+          <input id="link-imput" type="text" name="link" class="popup__input popup__input_place"
             placeholder="Ссылка на картинку" value="" autocomplete="on">
           <button id="save-add-place" type="submit" class="popup__button">Сохранить</button>
         </form>
-        <button id="close-popup-button-add-card" type="button" aria-label="Закрыть"
-          class="popup__close-button"></button>
+        <button id="close-popup-button-add-card" type="button" aria-label="Закрыть" class="popup__close-button"></button>
       </div>
     </div>
     <!--Форма карточки-->
     <template id="template">
-      <article class="template__element element">
+      <article class="element">
         <button id="delete-button" class="element__delete" type="reset"></button>
         <button id="show-image" class="element__show-img" type="button">
-          <img class="template__img element__img" src=" " alt=" ">
+          <img class="element__img" src=" " alt=" ">
         </button>
-        <div class="template__card element__card">
-          <h2 class="element__title template__title"></h2>
+        <div class="element__card">
+          <h2 class="element__title"></h2>
           <button id="like-button" type="button" class="template__like element__like"></button>
         </div>
       </article>

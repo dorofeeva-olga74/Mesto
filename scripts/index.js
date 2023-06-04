@@ -38,7 +38,7 @@ const popupTitlePlace = document.querySelector(".element__title");
 const popupImagePlace = document.querySelector(".element__img");
 const placeInput = document.querySelector('#place-input');
 const linkImput = document.querySelector("#link-imput");
-const addPlaceForm = document.querySelector('#add-place-form');
+const addPlaceForm = document.querySelector('#add-place-form');//formElement
 
 openPopupButtonAddCard.addEventListener('click', function () {
   openPopupPlace(popupAddPlace);
@@ -60,11 +60,11 @@ function сlosePopupPlace(popup) {
   popup.classList.remove('popup_opened');
 };
 // добавить карточки
-const template = document.querySelector('#template');//нахожу элемент в html /todolist-item-tamplate
+const template = document.querySelector('#template');//нахожу элемент в html 
 const templateContent = template.content;//тег template имеет свойство .content, по нему я могу получить доступ к содержимому шаблона
-const templateElement = templateContent.querySelector('.template__element');//todolist-item/присваиваю переменную и нахожу в templateContent -  article class="element"
+const templateElement = templateContent.querySelector('.element');//присваиваю переменную и нахожу в templateContent -  article class="element"
 const elements = document.querySelector('.elements');//
-const formElement = document.querySelector('.popup__add-place');
+/*const popupAddPlace = document.querySelector('#popup-add-place');*///formElement
 const initialCards = [
   {
     name: 'Архыз',
@@ -139,7 +139,7 @@ function createInitialCards(name, link) {  //функция создает но�
   return newElement;
 };
 //добавление карточки
-formElement.addEventListener('submit', function (evt) {
+popupAddPlace.addEventListener('submit', function (evt) {
   evt.preventDefault();
   const form = evt.target;//исходный элемент на котором произошло событие
   const formData = new FormData(form);
