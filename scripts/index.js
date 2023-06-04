@@ -64,7 +64,7 @@ const template = document.querySelector('#template');//нахожу элемен
 const templateContent = template.content;//тег template имеет свойство .content, по нему я могу получить доступ к содержимому шаблона
 const templateElement = templateContent.querySelector('.element');//присваиваю переменную и нахожу в templateContent -  article class="element"
 const elements = document.querySelector('.elements');//
-/*const popupAddPlace = document.querySelector('#popup-add-place');*///formElement
+
 const initialCards = [
   {
     name: 'Архыз',
@@ -118,7 +118,8 @@ function createInitialCards(name, link) {  //функция создает но�
   const deleteButton = newElement.querySelector('.element__delete');
   deleteButton.addEventListener('click', function (evt) {
     elements.removeChild(newElement);
-  });
+  }); 
+
   /*добавление анимации для открытия попапов*/
   const PopupTransform = document.querySelector('.popup');
   PopupTransform.addEventListener('click', function (evt) {
