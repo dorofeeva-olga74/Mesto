@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Место Россия</title>
   <link rel="stylesheet" type="text/css" href="./pages/index.css">
+  <script src="./scripts/cards.js" defer></script>
   <script src="./scripts/index.js" defer></script>
 </head>
 
@@ -30,18 +31,19 @@
     </section>
     <section class="elements">
     </section>
-      <!--Popup для добавления формы карточки-->
-    <div  class="popup" id="popup-add-place">
+    <!--Popup для добавления формы места-->
+    <div class="popup" id="popup-add-place">
       <div class="popup__container">
         <form action="#" name="add-place-form" id="add-place-form" class="popup__edit-form popup__add-place">
           <h2 class="popup__title popup__title_place">Новое место</h2>
-          <input id="place-input" type="text" name="name" class="popup__input popup__input_place" placeholder="Название"
+          <input id="place-input" type="text" name="name" class="popup__input popup__input_card_name" placeholder="Название"
             value="" autocomplete="on">
-          <input id="link-imput" type="text" name="link" class="popup__input popup__input_place"
+          <input id="link-imput" type="text" name="link" class="popup__input popup__input_card_link"
             placeholder="Ссылка на картинку" value="" autocomplete="on">
           <button id="save-add-place" type="submit" class="popup__button">Сохранить</button>
         </form>
-        <button id="close-popup-button-add-card" type="button" aria-label="Закрыть" class="popup__close-button"></button>
+        <button id="close-popup-button-add-card" type="button" aria-label="Закрыть"
+          class="popup__close-button popup__close-button_add-card"></button>
       </div>
     </div>
     <!--Форма карточки-->
@@ -52,8 +54,8 @@
           <img class="element__img" src=" " alt=" ">
         </button>
         <div class="element__card">
-          <h2 class="element__title template__title"></h2>
-          <button id="like-button" type="button" class="template__like element__like"></button>
+          <h2 class="element__title"></h2>
+          <button id="like-button" type="button" class="element__like"></button>
         </div>
       </article>
     </template>
@@ -65,20 +67,20 @@
   <section id="popup-img" class="popup popup_img_open">
     <div class="popup__container popup__container_img">
       <img class="popup__image" src="#" alt="Место">
-      <h2 id="popupNameImg" class="popup__name-img">Место</h2>
-      <button id="close-popup-img" type="button" aria-label="Закрыть" class="popup__close-button"></button>
+      <h2 class="popup__name-img"></h2>
+      <button id="close-popup-img" type="button" aria-label="Закрыть" class="popup__close-button popup__close-button_clipart"></button>
     </div>
   </section>
   <!--Popup для заполнения формы профиля-->
-  <div id="edit-popup" class="popup">
+  <div id="edit-popup-profile" class="popup">
     <div class="popup__container">
       <form action="#" name="edit-form" id="edit-form" class="popup__edit-form">
         <h2 class="popup__title">Редактировать профиль</h2>
-        <input id="name-input" type="text" name="name-input" class="popup__input" autocomplete="on">
-        <input id="proffession-input" type="text" name="name-input" class="popup__input" autocomplete="on">
+        <input id="name-input" type="text" name="name-input" class="popup__input" placeholder="Жак-Ив Кусто" autocomplete="on">
+        <input id="proffession-input" type="text" name="name-input" class="popup__input" placeholder="Исследователь океана" autocomplete="on">
         <button type="submit" class="popup__button">Сохранить</button>
       </form>
-      <button id="close-popup-button" type="button" aria-label="Закрыть" class="popup__close-button"></button>
+      <button id="close-popup-button" type="button" aria-label="Закрыть" class="popup__close-button popup__close-button_profile"></button>
     </div>
   </div>
 </body>
