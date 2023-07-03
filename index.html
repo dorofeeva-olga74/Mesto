@@ -9,6 +9,8 @@
   <link rel="stylesheet" type="text/css" href="./pages/index.css">
   <script src="./scripts/cards.js" defer></script>
   <script src="./scripts/index.js" defer></script>
+  <script src="./scripts/validate.js" defer></script>
+
 </head>
 
 <body class="page">
@@ -32,15 +34,20 @@
     <section class="elements">
     </section>
     <!--Popup для добавления формы места-->
-    <div class="popup" id="addPlacePopup">
+    <div class="popup popup_addplace_open" id="addPlacePopup">
       <div class="popup__container">
-        <form action="#" name="add-place-form" id="add-place-form" class="popup__edit-form popup__add-place">
+        <form action="#" name="add-place-form" id="add-place-form" class="popup__form popup__add-place" novalidate>
           <h2 class="popup__title popup__title_place">Новое место</h2>
-          <input id="place-input" type="text" name="name" class="popup__input popup__input_card_name" placeholder="Название"
-            value="" autocomplete="on">
-          <input id="link-imput" type="text" name="link" class="popup__input popup__input_card_link"
-            placeholder="Ссылка на картинку" value="" autocomplete="on">
-          <button id="save-add-place" type="submit" class="popup__button">Сохранить</button>
+          <div class="popup__inputs">
+            <input required id="place-input" type="text" name="nameplace" class="popup__input popup__input_card_name"
+              placeholder="Название" value="" autocomplete="on" minlength="2" maxlength="30">
+            <p class="popup__error_visible"></p>
+            <input required id="link-imput" type="url" name="link" class="popup__input popup__input_card_link"
+              placeholder="Ссылка на картинку" value="" autocomplete="on"
+              pattern="[Hh][Tt][Tt][Pp][Ss]?:\/\/(?:(?:[a-zA-Z\u00a1-\uffff0-9]+-?)*[a-zA-Z\u00a1-\uffff0-9]+)(?:\.(?:[a-zA-Z\u00a1-\uffff0-9]+-?)*[a-zA-Z\u00a1-\uffff0-9]+)*(?:\.(?:[a-zA-Z\u00a1-\uffff]{2,}))(?::\d{2,5})?(?:\/[^\s]*)?">
+            <p class="popup__error_visible"></p>
+          </div>
+          <button id="save-add-place" type="submit" class="popup__button" disabled>Сохранить</button>
         </form>
         <button id="close-popup-button-add-card" type="button" aria-label="Закрыть"
           class="popup__close-button popup__close-button_add-card"></button>
@@ -68,19 +75,27 @@
     <div class="popup__container popup__container_img">
       <img class="popup__image" src="#" alt="Место">
       <h2 class="popup__name-img"></h2>
-      <button id="close-popup-img" type="button" aria-label="Закрыть" class="popup__close-button popup__close-button_clipart"></button>
+      <button id="close-popup-img" type="button" aria-label="Закрыть"
+        class="popup__close-button popup__close-button_clipart"></button>
     </div>
   </section>
   <!--Popup для заполнения формы профиля-->
-  <div id="profilePopup" class="popup">
+  <div id="profilePopup" class="popup popup_profile_open">
     <div class="popup__container">
-      <form action="#" name="edit-form" id="edit-form" class="popup__edit-form">
+      <form action="#" name="edit-form" id="edit-form" class="popup__edit-form popup__form" novalidate>
         <h2 class="popup__title">Редактировать профиль</h2>
-        <input id="name-input" type="text" name="name-input" class="popup__input" placeholder="Жак-Ив Кусто" autocomplete="on">
-        <input id="proffession-input" type="text" name="name-input" class="popup__input" placeholder="Исследователь океана" autocomplete="on">
-        <button type="submit" class="popup__button">Сохранить</button>
+        <div class="popup__inputs">
+          <input required id="name-input" name="username" type="text" name="name-input" class="popup__input"
+            placeholder="Жак-Ив Кусто" autocomplete="on" value="" minlength="2" maxlength="40">
+          <p class="popup__error_visible"></p>
+          <input required id="proffession-input" name="aboutuser" type="text" class="popup__input"
+            placeholder="Исследователь океана" autocomplete="on" value="" minlength="2" maxlength="200">
+          <p class="popup__error_visible"></p>
+        </div>
+        <button type="submit" class="popup__button" disabled>Сохранить</button>
       </form>
-      <button id="close-popup-button" type="button" aria-label="Закрыть" class="popup__close-button popup__close-button_profile"></button>
+      <button id="close-popup-button" type="button" aria-label="Закрыть"
+        class="popup__close-button popup__close-button_profile"></button>
     </div>
   </div>
 </body>

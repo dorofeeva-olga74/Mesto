@@ -8,4 +8,5 @@
 -Адаптивная верстка
 -Медиазапросы
 -Java Script
+-Валидация форм
 [Прoект на Github:](https://dorofeeva-olga74.github.io/Mesto/index.html)

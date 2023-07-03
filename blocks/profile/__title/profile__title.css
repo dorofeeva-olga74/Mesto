@@ -1,5 +1,5 @@
 .profile__title {
-  font-family: 'Inter','Arial',sans-serif;
+  font-family: 'Inter', 'Arial', sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 42px;
@@ -7,7 +7,7 @@
   color: #FFFFFF;
   margin: 0;
   padding: 0;
-  text-align:justify;
+  text-align: justify;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;

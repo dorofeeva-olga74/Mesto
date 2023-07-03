@@ -1,5 +1,6 @@
-.popup__edit-form {
-    max-width: 100%;
+.popup__form {
+    max-width: 430px;
+    min-width: 430px;
     display: flex;
     flex-direction: column;
     padding: 34px 36px 37px 36px;
@@ -9,9 +10,16 @@
     border-radius: 10px;
 }
 
-@media screen and (max-width:410px) {
-    .popup__edit-form {
+@media screen and (max-width:450px) {
+    .popup__form {
         padding: 25px 24px;
         max-width: 282px;
+        min-width: 282px;
+    }
+}
+
+@media screen and (max-width:320px) {
+    .popup__form {
+        min-width: 232px;
     }
 }
