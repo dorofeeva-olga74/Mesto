@@ -24,7 +24,6 @@ function enableValidation(settings) {
     })
   })
 };
-
 /*функция проверяет есть ли ошибка в форме и меняет цвет кнопки Сохранить*/
 function checkValidity(currentInput, submitCurrentButton, settings, isInputsGood) { // добавляем параметр isInputsGood
   if (currentInput.validity.valid) {
