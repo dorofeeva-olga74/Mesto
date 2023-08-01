@@ -9,4 +9,7 @@
 -Медиазапросы
 -Java Script
 -Валидация форм
+-Использована работа с модулями
+-диррективы export и import
+-ООП
 [Прoект на Github:](https://dorofeeva-olga74.github.io/Mesto/index.html)

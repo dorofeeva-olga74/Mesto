@@ -7,10 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Место Россия</title>
   <link rel="stylesheet" type="text/css" href="./pages/index.css">
-  <script src="./scripts/cards.js" defer></script>
-  <script src="./scripts/index.js" defer></script>
-  <script src="./scripts/validate.js" defer></script>
-
+  <script type="module" src="./scripts/index.js" defer></script>
 </head>
 
 <body class="page">
@@ -55,7 +52,7 @@
       </div>
     </div>
     <!--Форма карточки-->
-    <template id="template">
+    <template id="template" class="template">
       <article class="element">
         <button id="delete-button" class="element__delete" type="reset"></button>
         <button id="show-image" class="element__show-img" type="button">

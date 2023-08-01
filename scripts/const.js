@@ -1,4 +1,4 @@
-const initialCards = [
+ export const initialCards = [
   {
     name: 'Архыз',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
@@ -23,4 +23,7 @@ const initialCards = [
     name: 'Байкал',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
-];  
+]; 
+//для всплывающей картинки
+export const popupFullImage = document.querySelector('#picturePopup'); // нашла попап для открытия картинки
+export const popupCloseButton = document.querySelector('.popup__close-button')// нашла кнопку закрытия  
