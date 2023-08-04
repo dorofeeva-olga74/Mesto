@@ -1,4 +1,4 @@
- export const initialCards = [
+const initialCards = [
   {
     name: 'Архыз',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
@@ -23,7 +23,22 @@
     name: 'Байкал',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
-]; 
-//для всплывающей картинки
-export const popupFullImage = document.querySelector('#picturePopup'); // нашла попап для открытия картинки
-export const popupCloseButton = document.querySelector('.popup__close-button')// нашла кнопку закрытия  
+];
+//элементы всплывающей картинки
+const popupFullImage = document.querySelector('#picturePopup'); // нашла попап для открытия картинки
+const imagePopup = document.querySelector('.popup__image');
+const namePopupImage = document.querySelector(".popup__name-img");
+
+//объект с классами и селекторами для валидации форм
+const formSelectors = {
+  formSelector: '.popup__form',// форма
+  inputSelector: '.popup__input',//инпут в форме
+  submitButtonSelector: '.popup__button',//сохранить
+  inactiveButtonClass: 'popup__button_disabled',//класс для неактивной кнопки "Сохранить"
+  errorClass: 'popup__error_visible',// текст ошибки красный тег <р>
+  inputErrorClass: 'popup__input_type_error',//инпут с ошибкой обводка красная 
+};
+
+//находим форму
+//export const formSelector = document.querySelectorAll('.popup__form');
+export { initialCards, formSelectors, popupFullImage, imagePopup, namePopupImage}

@@ -1,3 +1,9 @@
+/*функция открытия попапов*/
+export function openPopup(popup) {
+  popup.classList.add("popup_opened");
+  document.addEventListener('keydown', closeByEscape);
+}
+
 /*функция закрытия попапов*/
 export function closePopup(popup) {
   popup.classList.remove("popup_opened");

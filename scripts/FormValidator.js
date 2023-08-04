@@ -1,3 +1,4 @@
+//import * as scriptALL from './index.js';
 // включение валидации вызовом enableValidation
 export const formSelectors = {
   formSelector: '.popup__form',// форма
@@ -11,10 +12,28 @@ export const formSelectors = {
 export class FormValidator {//настраивает валидацию полей формы:
   constructor(formSelectors, formSelector) {
     this._formSelectors = formSelectors;//обьект с классами и селекторами формы
-    this._formSelector = formSelector;// форма 
+    this._formSelector = formSelector;// форма     
   }
+
+  //Публичный метод //правильный метод второй вариант
+  /*функция запускает валидацию форм*///функция находит импуты в каждой форме и проверяет их на валидность
+ /* enableValidation(formSelectors) {
+    const coolectionForms = document.querySelectorAll(formSelectors.formSelector);//settings - это обьект который явл аргументом функции
+    Array.from(coolectionForms).forEach((formSelector) => {//создаем массив из коллекции форм 
+      const colectionInputs = formSelector.querySelectorAll(this._inputSelector);//находим все импуты в конкретной форме
+      const submitCurrentButton = formSelector.querySelector(this._submitButtonSelector);//находим Сабмит в конкретной форме
+      Array.from(colectionInputs).forEach((inputSelector) => {//создаем массив из Инпутов из коллекции Инпутов
+        inputSelector.addEventListener('input', () => {//
+          const isInputsGood = Array.from(colectionInputs).every((input) => input.validity.valid); // объявляем локальную переменную и методом every 
+          //проверяем на валидность каждый импут и возвращает булевое значение 
+          this._checkValidity(inputSelector, submitCurrentButton, formSelectors, isInputsGood); // вызываем функцию checkValidity
+        });
+      })
+   })
+  };*/
+  
   enableValidation(formSelectors) {
-    const coolectionForms = document.querySelectorAll(formSelectors.formSelector);//formSelectors - это обьект который явл аргументом функции
+    const coolectionForms = document.querySelectorAll(formSelectors.formSelector);//settings - это обьект который явл аргументом функции
     Array.from(coolectionForms).forEach((currentForm) => {//создаем массив из коллекции форм 
       const colectionInputs = currentForm.querySelectorAll(formSelectors.inputSelector);//находим все импуты в конкретной форме
       const submitCurrentButton = currentForm.querySelector(formSelectors.submitButtonSelector);//находим Сабмит в конкретной форме
@@ -29,6 +48,7 @@ export class FormValidator {//настраивает валидацию поле
   };
 
   /*функция проверяет есть ли ошибка в форме и меняет цвет кнопки Сохранить*/
+  
   _checkValidity(currentInput, submitCurrentButton, formSelectors, isInputsGood) { // добавляем параметр isInputsGood
     if (currentInput.validity.valid) {
       this._hideErrors(currentInput, submitCurrentButton, formSelectors)
@@ -61,4 +81,4 @@ export class FormValidator {//настраивает валидацию поле
       submitCurrentButton.removeAttribute('disabled');
     }
   };
-}  
+}   

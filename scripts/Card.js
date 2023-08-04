@@ -1,4 +1,5 @@
-import { initialCards, popupFullImage, popupCloseButton } from './const.js';
+import { popupFullImage, imagePopup, namePopupImage } from './const.js';
+import { openPopup } from './popup.js';
 export class Card {
   constructor(data, templateSelector) {/*создает новый элемент на основе прототипа*/
     this._name = data.name;//name
@@ -13,7 +14,7 @@ export class Card {
     // вернём DOM-элемент карточки
     return newTemplate;
   }
-  
+
   // Добавим данные для всплывающей картинки
   _setData() {
     const fullImage = this._newCard.querySelector('.element__img');//нашла фото в попапе
@@ -21,7 +22,7 @@ export class Card {
     /*для всплывающей картинки*/
     fullImage.src = this._link;
     nameFullImage.textContent = this._name;
-    nameFullImage.alt = this._name;
+    fullImage.alt = this._name;
   }
 
   //метод публичный - подготовит карточку к публикации
@@ -32,54 +33,38 @@ export class Card {
     // Вернём элемент наружу
     return this._newCard;
   }
-  /*Открытие поппапа для всплывающей картинки*/
+  //добавление лайка на кнопку//публичный метод
+  addLike() {
+    this._newCard.querySelector('.element__like').classList.toggle('element__like_active');
+  }
+  //удаление карточки//публичный метод
+  deleteCard() {
+    this._newCard.remove();
+  }
+  //Открытие поппапа для всплывающей картинки
   _openImagePopup() {
-    popupFullImage.classList.add('popup_opened');//
-    document.querySelector('.popup__image').src = this._link;
-    document.querySelector(".popup__name-img").textContent = this._name;
+    openPopup(popupFullImage);    
+    imagePopup.src = this._link;    
+    namePopupImage.textContent = this._name;    
     this._alt = this._name;
-    this._newCard.addEventListener('keydown', this._closeByEscape);
   }
-
-  /*Закрытие поппапа*/
-  _closePopup = () => {
-    popupFullImage.classList.remove('popup_opened');
-    this._newCard.removeEventListener('keydown', this._closeByEscape);
-  }
-  //закрытие попапов через ESC
-  _closeByEscape = (evt) => {
-    if (evt.key === 'Escape') {
-      this._openedPopup = this._newCard.querySelector('.popup_opened');//нахожу открытый попап
-      this._closePopup(); //закрываю попап
-    }
-  };
   //метод добавляет обработчики
   _setEventListeners() {
     /*раскрывается popup для всплывающей картинки*/
-    this._newCard.querySelector('.element__img').addEventListener('click', () => {
-      this._openImagePopup()// откройте попап    
-    });
-    /*закрывает попап*/
-    popupCloseButton.addEventListener('click', () => {
-      this._closePopup()// закройте попап
-    });
-    /*добавление лайка на кнопку*/
-    this._newCard.querySelector('.element__like').addEventListener('click', (evt) => {
-      evt.target.classList.toggle('element__like_active');
-    });
+    this._newCard.querySelector('.element__img').addEventListener('click', () => this._openImagePopup());// откройте попап    
+    //добавление лайка на кнопку 
+    this._newCard.querySelector('.element__like').addEventListener("click", () => this.addLike());
     /* удаление карточки*/
-    this._newCard.querySelector('.element__delete').addEventListener('click', (evt) => {
-      this._newCard.remove();
-    });
+    this._newCard.querySelector('.element__delete').addEventListener('click', () => this.deleteCard());
   }
 }
 //Теперь цикл обойдёт массив initialCards и для каждого его элемента:
 //-создаст новый экземпляр класса Card,-подготовит карточку к публикации,-добавит новую карточку в DOM.
-initialCards.forEach((item) => {
+/*initialCards.forEach((item) => {
   // Создадим экземпляр карточки
   const card = new Card(item, '.template');//передаем два аргумента: обьект с данными и селектор темплейта
   // Создаём карточку и возвращаем наружу
   const newTemplate = card.generateCard();
   // Добавляем в DOM
   document.querySelector('.elements').prepend(newTemplate);
-});
+});*/
