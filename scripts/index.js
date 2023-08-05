@@ -2,7 +2,6 @@ import { Card } from './Card.js';
 import { openPopup, closePopup } from './popup.js';
 import { FormValidator } from './FormValidator.js';
 import { initialCards, formSelectors} from './const.js';
-//import { formSelectors } from "./const";
 export const formSelector = document.querySelectorAll('.popup__form');
 
 /* для формы добавления нового профиля*/
@@ -23,7 +22,7 @@ const popupInputAddNewCard = popupAddNewCard.querySelectorAll('.popup__input');
 const nameInputAddNewCard = document.querySelector(".popup__input_card_name");//значения полей формы контента
 const linkImputAddNewCard = document.querySelector(".popup__input_card_link");//значения полей формы контента
 const formAddNewCard = document.forms['add-place-form'];//нахожу форму добавления места по name
-const submitButtonSaveCard = document.querySelector('.popup__button_save-card');//нахожу кнопку Сохранить в форме добавления места
+//const submitButtonSaveCard = document.querySelector('.popup__button_save-card');//нахожу кнопку Сохранить в форме добавления места
 //const popupInputAddNewCard = formAddNewCard.querySelectorAll('.popup__input');
 // добавить карточки
 //const template = document.querySelector('#template');//нахожу элемент в html 
@@ -38,7 +37,7 @@ const popupCloseButton = document.querySelector('.popup__close-button')// наш
 const formAddNewCardValidator = new FormValidator(formSelectors, formAddNewCard);
 formAddNewCardValidator.enableValidation(formSelectors, formAddNewCard);
 const formProfileValidator = new FormValidator(formSelectors, formProfile);
-formProfileValidator.enableValidation(formSelectors);
+formProfileValidator.enableValidation(formSelectors, formProfile);
 
 /*для формы редактирования профиля*/
 formProfile.addEventListener("submit", function (evt) {
@@ -53,21 +52,16 @@ buttonOpenPopupProfile.addEventListener("click", function () {
   nameInputProfile.value = popupProfileTitle.textContent;
   proffessionInputProfile.value = popupProfileSubtitle.textContent;
   openPopup(popupProfile);
-  //enableSubmitButton(submitButtonSaveProfile);
-  //resetError(formProfile);
+  formProfileValidator.resetForm(formSelectors, formProfile);//убираю тексты ошибок
+  formProfileValidator.enableSubmitButton(formSelectors, formProfile);// делаю активной кнопку Сохранить 
 });
 
 // для формы добавления места открытие формы
 buttonOpenPopupAddNewCard.addEventListener('click', function () {//открытие попапа
   openPopup(popupAddNewCard);//открываю форму
   formAddNewCard.reset();// очищаю поля формы  
-  //formAddNewCardValidator.enableValidation(formSelectors, formAddNewCard);
-  //formAddNewCardValidator.resetError(formSelectors, formAddNewCard);//
-  //formAddNewCardValidator.enableSubmitButton();
-  //enableSubmitButton(submitButtonSaveCard);//делаю disable форме и кнопке Сохранить
-  //resetError(formAddNewCard);// убираю все тексты ошибок и подчеркивание в форме
-  
-  //formAddNewCardValidator.enableValidation(formSelectors, formAddNewCard);
+  formAddNewCardValidator.resetForm(formSelectors, formAddNewCard);// убираю все тексты ошибок и подчеркивание в форме
+  formAddNewCardValidator.disableSubmitButton(formSelectors,formAddNewCard)//делаю disable форме и кнопке Сохранить  
 });
 
 //закрывает попап

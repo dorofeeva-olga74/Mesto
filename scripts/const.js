@@ -30,7 +30,7 @@ const imagePopup = document.querySelector('.popup__image');
 const namePopupImage = document.querySelector(".popup__name-img");
 
 //объект с классами и селекторами для валидации форм
-const formSelectors = {
+export const formSelectors = {
   formSelector: '.popup__form',// форма
   inputSelector: '.popup__input',//инпут в форме
   submitButtonSelector: '.popup__button',//сохранить
@@ -38,7 +38,4 @@ const formSelectors = {
   errorClass: 'popup__error_visible',// текст ошибки красный тег <р>
   inputErrorClass: 'popup__input_type_error',//инпут с ошибкой обводка красная 
 };
-
-//находим форму
-//export const formSelector = document.querySelectorAll('.popup__form');
-export { initialCards, formSelectors, popupFullImage, imagePopup, namePopupImage}
+export { initialCards, popupFullImage, imagePopup, namePopupImage}
