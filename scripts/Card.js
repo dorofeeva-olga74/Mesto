@@ -6,6 +6,7 @@ export class Card {
     this._link = data.link;//link
     this._templateSelector = templateSelector; // записали селектор в приватное поле    
   }
+  
   _getTemplate() {
     // забираем разметку из HTML и клонируем элемент
     const newTemplate = document.querySelector(this._templateSelector)
@@ -43,9 +44,9 @@ export class Card {
   }
   //Открытие поппапа для всплывающей картинки
   _openImagePopup() {
-    openPopup(popupFullImage);    
-    imagePopup.src = this._link;    
-    namePopupImage.textContent = this._name;    
+    openPopup(popupFullImage);
+    imagePopup.src = this._link;
+    namePopupImage.textContent = this._name;
     this._alt = this._name;
   }
   //метод добавляет обработчики
@@ -58,13 +59,3 @@ export class Card {
     this._newCard.querySelector('.element__delete').addEventListener('click', () => this.deleteCard());
   }
 }
-//Теперь цикл обойдёт массив initialCards и для каждого его элемента:
-//-создаст новый экземпляр класса Card,-подготовит карточку к публикации,-добавит новую карточку в DOM.
-/*initialCards.forEach((item) => {
-  // Создадим экземпляр карточки
-  const card = new Card(item, '.template');//передаем два аргумента: обьект с данными и селектор темплейта
-  // Создаём карточку и возвращаем наружу
-  const newTemplate = card.generateCard();
-  // Добавляем в DOM
-  document.querySelector('.elements').prepend(newTemplate);
-});*/
