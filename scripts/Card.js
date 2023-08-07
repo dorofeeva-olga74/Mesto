@@ -41,6 +41,7 @@ export class Card {
   //удаление карточки//публичный метод
   deleteCard() {
     this._newCard.remove();
+    this._newCard = null;
   }
   //Открытие поппапа для всплывающей картинки
   _openImagePopup() {

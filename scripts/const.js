@@ -53,8 +53,7 @@ const formSelectors = {
   errorClass: 'popup__error_visible',// текст ошибки красный тег <р>
   inputErrorClass: 'popup__input_type_error',//инпут с ошибкой обводка красная 
 };
-// общая переменная для всех форм
-const popupCloseButton = document.querySelector('.popup__close-button')// нашла кнопку закрытия  
+
 //Для вызова FormValidator для формы добавления карточки
 const formAddNewCardValidator = new FormValidator(formSelectors, formAddNewCard);
 //Для вызова FormValidator для формы профиля
@@ -64,5 +63,5 @@ export {
   initialCards, formSelectors, popupFullImage, imagePopup, namePopupImage, buttonOpenPopupProfile,
   popupProfile, popupProfileTitle, popupProfileSubtitle, nameInputProfile, proffessionInputProfile, formProfile,
   buttonOpenPopupAddNewCard, popupAddNewCard, nameInputAddNewCard, linkImputAddNewCard, formAddNewCard, cards,
-  popupCloseButton, formAddNewCardValidator, formProfileValidator
+  formAddNewCardValidator, formProfileValidator
 }

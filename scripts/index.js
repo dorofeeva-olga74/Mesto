@@ -4,7 +4,7 @@ import {
   initialCards, formSelectors, buttonOpenPopupProfile,
   popupProfile, popupProfileTitle, popupProfileSubtitle, nameInputProfile, proffessionInputProfile, formProfile,
   buttonOpenPopupAddNewCard, popupAddNewCard, nameInputAddNewCard, linkImputAddNewCard, formAddNewCard, cards,
-  popupCloseButton, formAddNewCardValidator, formProfileValidator
+  formAddNewCardValidator, formProfileValidator
 } from './const.js';
 
 //Вызываем  FormValidator для формы добавления карточки
@@ -25,22 +25,30 @@ buttonOpenPopupProfile.addEventListener("click", function () {
   nameInputProfile.value = popupProfileTitle.textContent;
   proffessionInputProfile.value = popupProfileSubtitle.textContent;
   openPopup(popupProfile);
-  formProfileValidator.resetForm(formSelectors, formProfile);//убираю тексты ошибок
-  formProfileValidator.enableSubmitButton(formSelectors, formProfile);// делаю активной кнопку Сохранить 
+  formProfileValidator.resetForm();//убираю тексты ошибок
+  formProfileValidator.enableSubmitButton();// делаю активной кнопку Сохранить 
 });
 
 // для формы добавления места открытие формы - по умолчанию
 buttonOpenPopupAddNewCard.addEventListener('click', function () {//открытие попапа
   openPopup(popupAddNewCard);//открываю форму
   formAddNewCard.reset();// очищаю поля формы  
-  formAddNewCardValidator.resetForm(formSelectors, formAddNewCard);// убираю все тексты ошибок и подчеркивание в форме
-  formAddNewCardValidator.disableSubmitButton(formSelectors, formAddNewCard)//делаю disable форме и кнопке Сохранить  
+  formAddNewCardValidator.resetForm();// убираю все тексты ошибок и подчеркивание в форме
+  formAddNewCardValidator.disableSubmitButton()//делаю disable форме и кнопке Сохранить  
 });
 
-//закрывает попап 
-popupCloseButton.addEventListener('click', () => {
-  closePopup(popupAddNewCard)// закройте попап
+//Закрытие попапов по оверлею и на крестик
+document.querySelectorAll('.popup').forEach((popup) => {
+  popup.addEventListener('mousedown', (evt) => {
+    if (evt.target.classList.contains('popup_opened')) {
+      closePopup(popup)
+    }
+    if (evt.target.classList.contains('popup__close-button')) {
+      closePopup(popup)
+    }
+  })
 });
+
 
 //добавление карточки 
 formAddNewCard.addEventListener('submit', function (evt) {
@@ -59,5 +67,5 @@ initialCards.forEach((item) => {
   // Создаём карточку и возвращаем наружу
   const newTemplate = card.generateCard();
   // Добавляем в DOM
-  document.querySelector('.elements').prepend(newTemplate);
+  cards.prepend(newTemplate);
 });

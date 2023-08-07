@@ -17,15 +17,3 @@ export function closeByEscape(evt) {
     closePopup(openedPopup); //закрываю попап
   }
 };
-//Закрытие попапов по оверлею и на крестик
-export const closeByOverlay =
-  document.querySelectorAll('.popup').forEach((popup) => {
-    popup.addEventListener('mousedown', (evt) => {
-      if (evt.target.classList.contains('popup_opened')) {
-        closePopup(popup)
-      }
-      if (evt.target.classList.contains('popup__close-button')) {
-        closePopup(popup)
-      }
-    })
-  });
