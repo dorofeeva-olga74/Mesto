@@ -4,7 +4,7 @@
   "description": "Проект: Место Проект сайта о путешевствии по планете Земля с множеством фотографий мест путешествия с названиями и возможностью ставить \"лайки\" под фото.",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --mode production",
+    "build": "rm -rf dist && webpack --mode production",
     "dev": "webpack serve"
   },
   "repository": {
