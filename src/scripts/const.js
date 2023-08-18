@@ -25,25 +25,14 @@ const initialCards = [
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
 ];
-//элементы всплывающей картинки
-const popupFullImage = document.querySelector('#picturePopup'); // нашла попап для открытия картинки
-const imagePopup = document.querySelector('.popup__image');
-const namePopupImage = document.querySelector(".popup__name-img");
 //для формы добавления нового профиля
 const buttonOpenPopupProfile = document.querySelector(".profile__button_add_change");//кнопка открытия формы 
-const popupProfile = document.querySelector("#profilePopup");//имя попапа формы - обертка попапа по id
-const popupProfileTitle = document.querySelector(".profile__title");
-const popupProfileSubtitle = document.querySelector(".profile__subtitle");
 const nameInputProfile = document.querySelector("#name-input");
 const proffessionInputProfile = document.querySelector("#proffession-input");
 const formProfile = document.forms["edit-form"];//сама форма //нахожу форму заполнения профиля по name
 // для формы добавления места
 const buttonOpenPopupAddNewCard = document.querySelector('.profile__button_add_card');//кнопка открытия формы
-const popupAddNewCard = document.querySelector('#addPlacePopup');//форма попапа по id - обертка
-const nameInputAddNewCard = document.querySelector(".popup__input_card_name");//значения полей формы контента
-const linkImputAddNewCard = document.querySelector(".popup__input_card_link");//значения полей формы контента
 const formAddNewCard = document.forms['add-place-form'];//нахожу форму добавления места по name
-const cards = document.querySelector('.elements');//
 //объект с классами и селекторами для валидации форм
 const formSelectors = {
   formSelector: '.popup__form',// форма
@@ -58,10 +47,11 @@ const formSelectors = {
 const formAddNewCardValidator = new FormValidator(formSelectors, formAddNewCard);
 //Для вызова FormValidator для формы профиля
 const formProfileValidator = new FormValidator(formSelectors, formProfile);
+//Для нахождения контейнера с карточками
+const containerSelector = '.elements';
 
 export {
-  initialCards, formSelectors, popupFullImage, imagePopup, namePopupImage, buttonOpenPopupProfile,
-  popupProfile, popupProfileTitle, popupProfileSubtitle, nameInputProfile, proffessionInputProfile, formProfile,
-  buttonOpenPopupAddNewCard, popupAddNewCard, nameInputAddNewCard, linkImputAddNewCard, formAddNewCard, cards,
-  formAddNewCardValidator, formProfileValidator
+  initialCards, formSelectors, buttonOpenPopupProfile, nameInputProfile, proffessionInputProfile,
+  formProfile, buttonOpenPopupAddNewCard, formAddNewCard, formAddNewCardValidator,
+  formProfileValidator, containerSelector
 }

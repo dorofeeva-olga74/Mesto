@@ -6,9 +6,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Место Россия</title>
-  <link rel="stylesheet" type="text/css" href="./pages/index.css">
-  <link rel="shortcut icon" href="#" />
-  <script type="module" src="./scripts/index.js" defer></script>
+  <!--<link rel="stylesheet" type="text/css" href="./pages/index.css">-->
+  <!--<link rel="shortcut icon" href="#" />-->
+  <script type="module" src="./src/index.js" defer></script>
 </head>
 
 <body class="page">
@@ -37,15 +37,16 @@
         <form action="#" name="add-place-form" id="add-place-form" class="popup__form popup__add-place" novalidate>
           <h2 class="popup__title popup__title_place">Новое место</h2>
           <div class="popup__inputs">
-            <input required id="place-input" type="text" name="nameplace" class="popup__input popup__input_card_name"
+            <input required id="place-input" type="text" name="cardName" class="popup__input popup__input_card_name"
               placeholder="Название" value="" autocomplete="on" minlength="2" maxlength="30">
             <p class="popup__error popup__error_visible"></p>
-            <input required id="link-imput" type="url" name="link" class="popup__input popup__input_card_link"
+            <input required id="link-imput" type="url" name="urlCard" class="popup__input popup__input_card_link"
               placeholder="Ссылка на картинку" value="" autocomplete="on"
               pattern="[Hh][Tt][Tt][Pp][Ss]?:\/\/(?:(?:[a-zA-Z\u00a1-\uffff0-9]+-?)*[a-zA-Z\u00a1-\uffff0-9]+)(?:\.(?:[a-zA-Z\u00a1-\uffff0-9]+-?)*[a-zA-Z\u00a1-\uffff0-9]+)*(?:\.(?:[a-zA-Z\u00a1-\uffff]{2,}))(?::\d{2,5})?(?:\/[^\s]*)?">
             <p class="popup__error popup__error_visible"></p>
           </div>
-          <button id="save-add-place" type="submit" class="popup__button popup__button_save-card" disabled>Сохранить</button>
+          <button id="save-add-place" type="submit" class="popup__button popup__button_save-card"
+            disabled>Сохранить</button>
         </form>
         <button id="close-popup-button-add-card" type="button" aria-label="Закрыть"
           class="popup__close-button popup__close-button_add-card"></button>
@@ -70,10 +71,10 @@
       <form action="#" name="edit-form" id="edit-form" class="popup__edit-form popup__form" novalidate>
         <h2 class="popup__title">Редактировать профиль</h2>
         <div class="popup__inputs">
-          <input required id="name-input" name="username" type="text" class="popup__input" placeholder="Жак-Ив Кусто"
+          <input required id="name-input" name="userName" type="text" class="popup__input" placeholder="Жак-Ив Кусто"
             autocomplete="on" value="" minlength="2" maxlength="40">
           <p class="popup__error popup__error_visible"></p>
-          <input required id="proffession-input" name="aboutuser" type="text" class="popup__input"
+          <input required id="proffession-input" name="aboutUser" type="text" class="popup__input"
             placeholder="Исследователь океана" autocomplete="on" value="" minlength="2" maxlength="200">
           <p class="popup__error popup__error_visible"></p>
         </div>
