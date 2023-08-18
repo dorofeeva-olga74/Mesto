@@ -8,17 +8,17 @@
   <title>Место Россия</title>
   <!--<link rel="stylesheet" type="text/css" href="./pages/index.css">-->
   <!--<link rel="shortcut icon" href="#" />-->
-  <script type="module" src="./src/index.js" defer></script>
+  <!--<script type="module" src="./src/index.js" defer></script>-->
 </head>
 
 <body class="page">
   <header class="header">
-    <img class="header__logo" src="./images/Logo.svg" alt="Логотип сайта">
+    <img class="header__logo" src="<%=require('./images/Logo.svg')%>" alt="Логотип сайта">
   </header>
   <main class="content">
     <section class="profile">
       <div class="profile__group">
-        <img class="profile__avatar" src="./images/avatar.png" alt="Фотография профиля">
+        <img class="profile__avatar" src="<%=require('./images/avatar.png')%>" alt="Фотография профиля">
         <div class="profile__info">
           <h1 class="profile__title">Жак-Ив Кусто</h1>
           <button id="open-popup-button" type="button" class="profile__button profile__button_add_change">
@@ -97,6 +97,7 @@
       </div>
     </article>
   </template>
+  <!--<script type='module' src="pages/index.js" defer></script>-->
 </body>
 
 </html>
