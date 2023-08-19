@@ -6,12 +6,12 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: {
-    main: './src/index.js'
-  },// указали первое место, куда заглянет webpack, — файл index.js в папке src
-  output: {
+    main: './src/pages/index.js'// указали первое место, куда заглянет webpack, — файл index.js в папке src
+  },
+  output: {//точка выхода
     path: path.resolve(__dirname, 'dist'),//Ему переданы два аргумента: ссылка на текущую папку __dirname
                                         // и относительный путь к точке выхода
-    filename: 'main.js',
+    filename: 'main.js',//*/'[name][hash].js',//- что бы после внесения коррективов ен загружался старый файл из кэша
     publicPath: '',
   },// указали в какой файл будет собираться весь js и дали ему имя 
   // переписали точку выхода, используя утилиту path 

@@ -1,4 +1,4 @@
-import { FormValidator } from './FormValidator.js';
+import { FormValidator } from '../components/FormValidator.js';
 const initialCards = [
   {
     name: 'Архыз',

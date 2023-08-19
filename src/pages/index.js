@@ -1,38 +1,38 @@
-import './pages/index.css'; // добавьте импорт главного файла стилей
+import './index.css'; // добавьте импорт главного файла стилей
 
-import { Card } from './scripts/Card.js';
-import { PopupWithImage } from './scripts/PopupWithImage.js';
-import { PopupWithForm } from './scripts/PopupWithForm.js';
-import { UserInfo } from "./scripts/UserInfo.js";
-import { Section } from "./scripts/Section.js";
+import { Card } from '../components/Card.js';
+import { PopupWithImage } from '../components/PopupWithImage.js';
+import { PopupWithForm } from '../components/PopupWithForm.js';
+import { UserInfo } from "../components/UserInfo.js";
+import { Section } from "../components/Section.js";
 import {
   initialCards, formSelectors, buttonOpenPopupProfile, nameInputProfile,
   proffessionInputProfile, formProfile, buttonOpenPopupAddNewCard,
   formAddNewCard,  formAddNewCardValidator, formProfileValidator, containerSelector
-} from './scripts/const.js';
+} from '../const/const.js';
 
 //ДЛЯ ФОРМЫ - ВСПЛЫВАЮЩАЯ КАРТИНКА
-const newPopupWithImage = new PopupWithImage('.popup_img_open');
-newPopupWithImage.setEventListeners();
+const popupWithImageElement = new PopupWithImage('.popup_img_open');
+popupWithImageElement.setEventListeners();
 
 /*ДЛЯ ФОРМЫ ЗАПОЛНЕНИЯ ПРОФИЛЯ*/
 //отображает информацию о пользователе на странице
-const newUserInfo = new UserInfo({
+const userInfoElement = new UserInfo({
   userNameSelector: ".profile__title",
   aboutUserSelector: ".profile__subtitle",
 });
 
-const newPopupWithFormProfile = new PopupWithForm('.popup_profile_open', () => {
-  newUserInfo.setUserInfo({ userName: nameInputProfile.value, aboutUser: proffessionInputProfile.value });
-  newUserInfo.getUserInfo({ userName: nameInputProfile.value, aboutUser: proffessionInputProfile.value });
+const popupWithFormProfileElement = new PopupWithForm('.popup_profile_open', () => {
+  userInfoElement.setUserInfo({ userName: nameInputProfile.value, aboutUser: proffessionInputProfile.value });
+  userInfoElement.getUserInfo({ userName: nameInputProfile.value, aboutUser: proffessionInputProfile.value });
 
 });
-newPopupWithFormProfile.setEventListeners();
+popupWithFormProfileElement.setEventListeners();
 
 //обработчик кнопки "Добавить профиль" для формы заполнения профиля
 const popupProfileButtonHandler = () => {
-  newPopupWithFormProfile.setInputValue(newUserInfo.getUserInfo());//добавляется заполнение полей 
-  newPopupWithFormProfile.open();//открываю профиль
+  popupWithFormProfileElement.setInputValue(userInfoElement.getUserInfo());//добавляется заполнение полей 
+  popupWithFormProfileElement.open();//открываю профиль
   formProfileValidator.resetForm();//убираю тексты ошибок
   formProfileValidator.enableSubmitButton();// делаю активной кнопку Сохранить 
 };
@@ -41,35 +41,35 @@ buttonOpenPopupProfile.addEventListener("click", popupProfileButtonHandler);
 
 /*ДЛЯ РЕДАКТИРОВАНИЯ ФОРМЫ ДОБАВЛЕНИЯ КАРТОЧКИ МЕСТА*/
 //отвечает за отрисовку элементов на странице
-const newCardSection = new Section(
+const cardSectionElement = new Section(
   {
     items: initialCards,
     renderer: ({ name, link }) => {      
       const cardElement = createCard(link, name);//форма карточки - template элемент     
-      newCardSection.addItem(cardElement);//// Добавляем в DOM
+      cardSectionElement.addItem(cardElement);//// Добавляем в DOM
     },
   },
   containerSelector//контейнер с карточками
 );
 //функция, которая отвечает за создание и отрисовку данных на странице
-newCardSection.renderItems();
+cardSectionElement.renderItems();
 // 
-const newPopupWithFormMesto = new PopupWithForm('.popup_addplace_open', (values) => {
+const popupWithFormMestoElement = new PopupWithForm('.popup_addplace_open', (values) => {
   const { cardName, urlCard } = values;
-  newCardSection.addItem(createCard(urlCard, cardName));
+  cardSectionElement.addItem(createCard(urlCard, cardName));
 });
-newPopupWithFormMesto.setEventListeners();
+popupWithFormMestoElement.setEventListeners();
 
 //Создаём карточку и возвращаем наружу
 function createCard(link, name) {
   return new Card(
     { link, name }, '.template',////передаем два аргумента: обьект с данными и селектор темплейта
-    newPopupWithImage.open
+    popupWithImageElement.open
   ).generateCard();//// Создаём карточку и возвращаем наружу
 }
 //обработчик кнопки "Добавить" для формы добавления места - по умолчанию
 const addCardButtonHandler = () => {
-  newPopupWithFormMesto.open();//открываю форму
+  popupWithFormMestoElement.open();//открываю форму
   formAddNewCard.reset();// очищаю поля формы  
   formAddNewCardValidator.resetForm();// убираю все тексты ошибок и подчеркивание в форме
   formAddNewCardValidator.disableSubmitButton()//делаю disable форме и кнопке Сохранить  

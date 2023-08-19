@@ -12,7 +12,7 @@
   text-align: center;
   color: #FFFFFF;
   padding: 12px 0 16px 0;
-  margin: 48px auto 0 auto;
+  margin: 20px auto 0 auto;
   box-sizing: border-box;
   border: 1px solid rgba(0, 0, 0, .2);
 }
@@ -28,6 +28,7 @@
   .popup__button {
     font-size: 14px;
     line-height: 17px;
+    margin: 13px auto 0 auto;
   }
 }
 
