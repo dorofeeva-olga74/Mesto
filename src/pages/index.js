@@ -61,7 +61,7 @@ const popupWithFormAvatarElement = new PopupWithForm('.popup_avatar', (avatar) =
   api.changeAvatarUrl(avatar)
     .then(() => {
       //console.log(avatar),//ответ
-        userInfoElement.setUserInfo(avatar);
+      userInfoElement.setUserInfo(avatar);
       setTimeout(() => {
         popupWithFormAvatarElement.close();
         popupWithFormAvatarElement.changeSubmitButtonText('Сохранить');
@@ -184,7 +184,7 @@ function handleLikeClick(card) {
   const cardId = card.getCardId();// получила id карточки  
   if (card.checkIsLiked()) {//проверяю стоит мой лайк или нет, если есть
     api.deleteLikeCardData(cardId)//удаляю лайк
-      .then((res) => {       
+      .then((res) => {
         card.addLike(res.likes.length)//количество лайков
         card.deleteLike(res.likes.length) /*(likes?.length)*///количество лайков;       
       })
@@ -204,7 +204,7 @@ function handleLikeClick(card) {
         card.setLoadingState('Ошибка');////текст загрузки
         console.error;//ошибка
       })
-      .finally((data) => {        
+      .finally((data) => {
         card._setLikesCount(data)
       });
   }

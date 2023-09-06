@@ -9,21 +9,21 @@ export class UserInfo {
 
   }
   //публичный метод возвращает объект с данными пользователя
-  getUserInfo() {    
+  getUserInfo() {
     return {
       userName: this._userName.textContent,
       aboutUser: this._aboutUser.textContent,
-      avatar: this._avatarFoto.src,      
+      avatar: this._avatarFoto.src,
     };
   }
   //публичный метод принимает новые данные пользователя и добавляет их на страницу
-  setUserInfo({ name, about, avatar, _id }) {    
+  setUserInfo({ name, about, avatar, _id }) {
     this._userName.textContent = name;
     this._aboutUser.textContent = about;
-    this._avatarFoto.src = avatar; 
+    this._avatarFoto.src = avatar;
     this._userId = _id;//мой ID!!!    
-  } 
+  }
   getUserId() {
-   return this._userId;       
-  }  
+    return this._userId;
+  }
 } 

@@ -51,7 +51,7 @@ export class Api {
   getCurrentUser() {
     this.getUserCardsData(_id)
       .then((response) => {
-         localStorage.setItem('userId', response?._id);
+        localStorage.setItem('userId', response?._id);
         return response;
       });
   }

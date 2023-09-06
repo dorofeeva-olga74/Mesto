@@ -42,7 +42,6 @@ const buttonOpenPopupAvatar = document.querySelector('.profile__avatar-set');
 //для формы удаления карточки
 const formDelete = document.forms["delete-card-form"];//сама форма //нахожу форму удаления карточки по name
 //const buttonOpenPopupDelete = document.querySelector("element__delete");
-
 ////////////////
 // для формы добавления места
 /*const buttonOpenPopupAddNewCard = document.querySelector('.profile__button_add_card');//кнопка открытия формы
@@ -75,8 +74,8 @@ const formDeleteValidator = new FormValidator(formSelectors, formDelete);
 //const popupWithImageElement = new PopupWithImage('.popup_img_open');
 
 export {
-  formSelectors, buttonOpenPopupProfile,formProfile, buttonOpenPopupAddNewCard,
-  formAddNewCard, formAddNewCardValidator,formProfileValidator, containerSelector, 
-  formAvatar, formAvatarValidator, buttonOpenPopupAvatar, formDelete, 
+  formSelectors, buttonOpenPopupProfile, formProfile, buttonOpenPopupAddNewCard,
+  formAddNewCard, formAddNewCardValidator, formProfileValidator, containerSelector,
+  formAvatar, formAvatarValidator, buttonOpenPopupAvatar, formDelete,
   formDeleteValidator
 }
