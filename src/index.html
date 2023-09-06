@@ -18,8 +18,10 @@
   <main class="content">
     <section class="profile">
       <div class="profile__group">
-        <img class="profile__avatar" src="<%=require('./images/avatar.png')%>" alt="Фотография профиля">
-        <div class="profile__info">
+        <div class="profile__avatar-set">
+          <img class="profile__avatar" src="<%=require('./images/avatar.png')%>" alt="Фотография профиля">
+        </div>
+          <div class="profile__info">
           <h1 class="profile__title">Жак-Ив Кусто</h1>
           <button id="open-popup-button" type="button" class="profile__button profile__button_add_change">
           </button>
@@ -40,7 +42,7 @@
             <input required id="place-input" type="text" name="cardName" class="popup__input popup__input_card_name"
               placeholder="Название" value="" autocomplete="on" minlength="2" maxlength="30">
             <p class="popup__error popup__error_visible"></p>
-            <input required id="link-imput" type="url" name="urlCard" class="popup__input popup__input_card_link"
+            <input required id="link-input" type="url" name="urlCard" class="popup__input popup__input_card_link"
               placeholder="Ссылка на картинку" value="" autocomplete="on"
               pattern="[Hh][Tt][Tt][Pp][Ss]?:\/\/(?:(?:[a-zA-Z\u00a1-\uffff0-9]+-?)*[a-zA-Z\u00a1-\uffff0-9]+)(?:\.(?:[a-zA-Z\u00a1-\uffff0-9]+-?)*[a-zA-Z\u00a1-\uffff0-9]+)*(?:\.(?:[a-zA-Z\u00a1-\uffff]{2,}))(?::\d{2,5})?(?:\/[^\s]*)?">
             <p class="popup__error popup__error_visible"></p>
@@ -84,16 +86,48 @@
         class="popup__close-button popup__close-button_profile"></button>
     </div>
   </div>
+  <!--Popup удаления карточки-->
+  <div class="popup popup_addplace_delete" id="deleteAddPlacePopup">
+    <div class="popup__container">
+      <form action="#" name="delete-card-form" id="delete-card-form" class="popup__form popup__add-place_delete" novalidate>
+        <h2 class="popup__title popup__title_place">Вы уверены?</h2>        
+        <button id="delete-card-place" type="submit" class="popup__button popup__button_delete-card"
+          disabled>Да</button>
+      </form>
+      <button id="close-popup-button-add-card" type="button" aria-label="Закрыть"
+        class="popup__close-button popup__close-button_delete-card"></button>
+    </div>
+  </div>
+  <!--Popup для обновления аватара-->
+  <div id="newAvatarPopup" class="popup popup_avatar">
+    <div class="popup__container">
+      <form action="#" name="avatar-form" id="avatar-form" class="popup__form popup__avatar-form" novalidate>
+        <h2 class="popup__title">Обновить аватар</h2>
+        <div class="popup__inputs">
+          <input required id="link-avatar" type="url" name="avatar" class="popup__input popup__input_avatar_link"
+              placeholder="Ссылка на фотографию" value="" autocomplete="on"
+              pattern="[Hh][Tt][Tt][Pp][Ss]?:\/\/(?:(?:[a-zA-Z\u00a1-\uffff0-9]+-?)*[a-zA-Z\u00a1-\uffff0-9]+)(?:\.(?:[a-zA-Z\u00a1-\uffff0-9]+-?)*[a-zA-Z\u00a1-\uffff0-9]+)*(?:\.(?:[a-zA-Z\u00a1-\uffff]{2,}))(?::\d{2,5})?(?:\/[^\s]*)?">
+            <p class="popup__error popup__error_visible"></p>
+        </div>
+        <button type="submit" class="popup__button popup__button_save-avatar" disabled>Сохранить</button>
+      </form>
+      <button id="close-popup-button" type="button" aria-label="Закрыть"
+        class="popup__close-button popup__close-button_avatar"></button>
+    </div>
+  </div>
   <!--Форма карточки-->
   <template id="template" class="template">
     <article class="element">
-      <button id="delete-button" class="element__delete" type="reset"></button>
+      <button hidden id="delete-button" class="element__delete" type="reset"></button>
       <button id="show-image" class="element__show-img" type="button">
         <img class="element__img" src=" " alt=" ">
       </button>
       <div class="element__card">
         <h2 class="element__title"></h2>
-        <button id="like-button" type="button" class="element__like"></button>
+        <div class="element__like-section">
+          <button id="like-button" type="button" class="element__like"></button>
+          <p class="element__like-counter">0</p>
+        </div>
       </div>
     </article>
   </template>  

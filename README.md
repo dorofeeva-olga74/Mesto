@@ -8,8 +8,9 @@
 -Адаптивная верстка
 -Медиазапросы
 -Java Script
--Валидация форм
+-Валидация формы
 -Использована работа с модулями
 -диррективы export и import
 -ООП
-[Прoект на Github:](https://dorofeeva-olga74.github.io/Mesto/index.html)
+-работа с API
+[Прoект на Github:](https://dorofeeva-olga74.github.io/Mesto)

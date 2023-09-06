@@ -1,9 +1,15 @@
 .profile__avatar {
   margin: 0;
   padding: 0;
-  border-radius: 50%;
-  object-fit: cover;
-  flex-shrink: 0;
-  max-width: 168.75px;
-  max-height: 127.5px;
+  background-size: contain;
+  height: 120px;
+  width: 120px;
+  border-radius: 100%;
+  cursor: pointer;
+  transition: ease-in-out 0.2s;
+  opacity: 1;
+}
+
+.profile__avatar:hover {
+  opacity: 0.2;
 }
