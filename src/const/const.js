@@ -1,5 +1,5 @@
 import { FormValidator } from '../components/FormValidator.js';
-const initialCards = [
+/*const initialCards = [
   {
     name: 'Архыз',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
@@ -24,24 +24,24 @@ const initialCards = [
     name: 'Байкал',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
-];
+];*/
 //для формы добавления нового профиля
 const buttonOpenPopupProfile = document.querySelector(".profile__button_add_change");//кнопка открытия формы 
-const nameInputProfile = document.querySelector("#name-input");
-const proffessionInputProfile = document.querySelector("#proffession-input");
+//const nameInputProfile = document.querySelector("#name-input");
+//const proffessionInputProfile = document.querySelector("#proffession-input");
 const formProfile = document.forms["edit-form"];//сама форма //нахожу форму заполнения профиля по name
 // для формы добавления места
 const buttonOpenPopupAddNewCard = document.querySelector('.profile__button_add_card');//кнопка открытия формы
 const formAddNewCard = document.forms['add-place-form'];//нахожу форму добавления места по name
-const nameInputAddNewCard = document.querySelector(".popup__input_card_name");//значения полей формы контента
-const linkImputAddNewCard = document.querySelector(".popup__input_card_link");//значения полей формы контента
-const buttonDeleteCard = document.querySelector(".delete-button");//нахожу кнопку удаления карты
+//const nameInputAddNewCard = document.querySelector(".popup__input_card_name");//значения полей формы контента
+//const linkImputAddNewCard = document.querySelector(".popup__input_card_link");//значения полей формы контента
+//const buttonDeleteCard = document.querySelector(".delete-button");//нахожу кнопку удаления карты
 //для формы изменения аватара
 const formAvatar = document.forms["avatar-form"];//сама форма //нахожу форму изменения аватара по name
 const buttonOpenPopupAvatar = document.querySelector('.profile__avatar-set');
 //для формы удаления карточки
 const formDelete = document.forms["delete-card-form"];//сама форма //нахожу форму удаления карточки по name
-const buttonOpenPopupDelete = document.querySelector("element__delete");
+//const buttonOpenPopupDelete = document.querySelector("element__delete");
 
 ////////////////
 // для формы добавления места
@@ -71,11 +71,12 @@ const formProfileValidator = new FormValidator(formSelectors, formProfile);
 const formAvatarValidator = new FormValidator(formSelectors, formAvatar);
 //Для вызова FormValidator для формы удаления
 const formDeleteValidator = new FormValidator(formSelectors, formDelete);
+//ДЛЯ ФОРМЫ - ВСПЛЫВАЮЩАЯ КАРТИНКА
+//const popupWithImageElement = new PopupWithImage('.popup_img_open');
 
 export {
-  initialCards, formSelectors, buttonOpenPopupProfile, nameInputProfile, proffessionInputProfile,
-  formProfile, buttonOpenPopupAddNewCard, formAddNewCard, formAddNewCardValidator,
-  formProfileValidator, containerSelector, nameInputAddNewCard, linkImputAddNewCard, formAvatar,
-  formAvatarValidator, buttonOpenPopupAvatar, buttonDeleteCard, formDelete, buttonOpenPopupDelete, 
-  formDeleteValidator,
+  formSelectors, buttonOpenPopupProfile,formProfile, buttonOpenPopupAddNewCard,
+  formAddNewCard, formAddNewCardValidator,formProfileValidator, containerSelector, 
+  formAvatar, formAvatarValidator, buttonOpenPopupAvatar, formDelete, 
+  formDeleteValidator
 }

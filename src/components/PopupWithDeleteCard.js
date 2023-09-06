@@ -5,15 +5,14 @@ export class PopupWithDeleteCard extends Popup {
     this._submitCallBack = submitCallBack;
     this._form = this.popup.querySelector('.popup__form');
     this._submitButtonSelector = this._form.querySelector('.popup__button');//нахожу сабмит формы
-    this._deleteCard = null;   
+    this._deleteCardInstance = null;  
   }
 ////Обработчик сабмита формы//удаление карточки//
 _handleSubmitDeleteCard(evt) {
-  evt.preventDefault();
-  this._submitCallBack(this._deleteCard(this._cardId, this));
-  //this._submitButtonSelector.addEventListener('click', () => this.deleteCard());
-  super.close();  
-  //this.close();//закрывается форма  
+  evt.preventDefault();  
+  this._submitCallBack(this._deleteCardInstance);;
+  //this._submitButtonSelector.addEventListener('click', () => this.deleteCard());   
+  this.close();//закрывается форма  
 } 
 changeSubmitButtonText(newText) {
   if (!newText) return;
@@ -21,16 +20,21 @@ changeSubmitButtonText(newText) {
 }
 open(cardInstance) {
   super.open();
-  this._deleteCard = cardInstance;
+  this._deleteCardInstance = cardInstance;
 }
 //Перезаписывает родительский метод 
   // обработчик клика иконке удаления и добавляет обработчик сабмита формы
 setEventListeners() {
   super.setEventListeners();
-  console.log(this._form);
+  //console.log(this._form);
   this._form.addEventListener('submit', (evt) => this._handleSubmitDeleteCard(evt));
   //this._form.addEventListener('click', (evt) =>this._setConfirmAction());   
 }
+//Закрытие формы
+  close() { //Перезаписывает родительский метод      
+    super.close();// наследует метод close от родительского и 
+    this._form.reset();//сбрасывает форму
+  }
 }  
 //Обработчик сабмита формы
 /*_handleSubmit(evt) {
