@@ -1,12 +1,9 @@
-import { data } from "autoprefixer";
-
 //класс отвечает за управление отображением информации о пользователе на странице
 export class UserInfo {
   constructor({ userNameSelector, aboutUserSelector, avatarSelector }) {
     this._userName = document.querySelector(userNameSelector);
     this._aboutUser = document.querySelector(aboutUserSelector);
     this._avatarFoto = document.querySelector(avatarSelector);
-
   }
   //публичный метод возвращает объект с данными пользователя
   getUserInfo() {
@@ -25,5 +22,8 @@ export class UserInfo {
   }
   getUserId() {
     return this._userId;
+  }
+  setAvatar(avatarLink) {
+    this._avatarFoto.src = avatarLink;
   }
 } 

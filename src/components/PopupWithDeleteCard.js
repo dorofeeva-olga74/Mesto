@@ -10,8 +10,7 @@ export class PopupWithDeleteCard extends Popup {
   //Обработчик сабмита формы//удаление карточки//
   _handleSubmitDeleteCard(evt) {
     evt.preventDefault();
-    this._submitCallBack(this._deleteCardInstance);
-    this.close();//закрывается форма  
+    this._submitCallBack(this._deleteCardInstance);    
   }
   changeSubmitButtonText(newText) {
     if (!newText) return;

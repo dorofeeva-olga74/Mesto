@@ -28,7 +28,6 @@ export class PopupWithForm extends Popup {
   _handleSubmit(evt) {
     evt.preventDefault();
     this._submitCallBack(this._getInputValues());//заполняются поля инпутов    
-    this.close();//закрывается форма
   }
   //Метод меняет текст при загрузке
   changeSubmitButtonText(changeText) {

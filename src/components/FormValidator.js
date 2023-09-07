@@ -8,6 +8,8 @@ export class FormValidator {//настраивает валидацию поле
     this.inactiveButtonClass = this.settings.inactiveButtonClass;
     this.inputErrorClass = this.settings.inputErrorClass;
     this.errorClass = this.settings.errorClass;
+    this._inputList = this.form.querySelectorAll(this.settings.inputSelector);
+    this._submitButton = this.form.querySelector(this.submitButtonSelector);    
   }
   //публичный метод очистки формы при открытии попапа/если предыдущее заполнение не было сохранено
   resetForm() {
@@ -41,11 +43,11 @@ export class FormValidator {//настраивает валидацию поле
   };
   //метод создает массив с инпутами
   _getColectionInputs() {
-    return Array.from(this.form.querySelectorAll(this.settings.inputSelector))
+     return Array.from(this._inputList);
   }
   //метод находит кнопку "Сохранить"
   _getSubmitCurrentButton() {
-    return this.form.querySelector(this.submitButtonSelector)
+    return this._submitButton;
   }
   //Публичный метод проверки импутов на валидность
   enableValidation() {

@@ -40,8 +40,7 @@ export class Card {
     /*мой лайк*/
     this._isLiked = this._likes.some((like) => like._id === this._userId);
     /*кнопка - "Удалить карточку"*/
-    this._deleteButton = this._newCard.querySelector('.element__delete');
-    //console.log(this._likes);
+    this._deleteButton = this._newCard.querySelector('.element__delete');    
     if (this._isLiked) {
       this.likeButton.classList.add('element__like_active');
       this.likesQuantity.textContent = this._likes.length || 0;
