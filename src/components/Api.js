@@ -16,7 +16,7 @@ export class Api {
   /*_request(url, options) {
     return fetch(url, options).then(this._checkResponse)
   }*///нужно заменить все fetch на this._request
-  
+
   //инициировать карточки //получение данных с сервера
   getInitialCards() {//getAllToddos
     return fetch(`${this._url}/cards`, { //возврат fetch всегда промис-/tasks

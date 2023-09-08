@@ -6,9 +6,10 @@ export class Card {
     this._name = data.name;//name
     this._cardId = data._id;//id карточки
     this._link = data.link;//link 
-    this._likes = data.likes;//массив лайков    
+    this._likes = data.likes;//массив лайков  
+    this._owner = data.owner; //данные пользователя 
     this._userId = userId;//мой ID  
-    this._isLiked = data.likes.some((like) => like._id === this._userId);//сравнение id для лайков
+    this._isLiked = this._likes.some((like) => like._id === this._userId);//сравнение id для лайков
     this._liked = document.querySelector('.element__like');//кнопка лайка дом документ
     this._ownerId = data.owner._id; //чужой ID
     this.likesQuantity = this._likes.length || 0;//цифры счетчика лайков
@@ -17,6 +18,7 @@ export class Card {
     this._templateSelector = templateSelector; // записали селектор в приватное поле
     this.handleOpenPopupImage = handleOpenPopupImage;//метод открывает попап с картинкой при клике на карточку
   }
+
   _getTemplate() {
     // забираем разметку из HTML и клонируем элемент
     const newTemplate = document.querySelector(this._templateSelector)
@@ -40,7 +42,7 @@ export class Card {
     /*мой лайк*/
     this._isLiked = this._likes.some((like) => like._id === this._userId);
     /*кнопка - "Удалить карточку"*/
-    this._deleteButton = this._newCard.querySelector('.element__delete');    
+    this._deleteButton = this._newCard.querySelector('.element__delete');
     if (this._isLiked) {
       this.likeButton.classList.add('element__like_active');
       this.likesQuantity.textContent = this._likes.length || 0;
@@ -50,14 +52,6 @@ export class Card {
   _setLikesCount(quantity) {//
     if (quantity === undefined) return;
     this._liked.textContent = quantity;
-  }
-  _getTemplate() {
-    // забираем разметку из HTML и клонируем элемент
-    const newTemplate = document.querySelector(this._templateSelector)
-      .content.querySelector('.element')
-      .cloneNode(true);
-    // вернём DOM-элемент карточки
-    return newTemplate;
   }
   //метод добавляет обработчики
   setEventListeners() {
@@ -118,7 +112,8 @@ export class Card {
     this._newCard = this._getTemplate();
     this.setEventListeners(); // вызовите _setEventListeners //удаление, открытие и лайк
     this._setData();
-    this._isLiked = this._likes.some((like) => like._id === this._userId);
+    //this._isLiked = this._likes.some((like) => like._id === this._userId);
+    this._newCard.id = this._cardId;
     if (this._ownerId === this._userId) {
       this._deleteButton.hidden = false;
     }

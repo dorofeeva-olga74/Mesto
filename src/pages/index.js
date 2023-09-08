@@ -1,26 +1,14 @@
 import './index.css'; // добавьте импорт главного файла стилей
 import { Card } from '../components/Card.js';
 import {
-  api, popupWithImageElement, userInfoElement, popupWithFormProfileElement, 
+  api, popupWithImageElement, userInfoElement, popupWithFormProfileElement,
   popupWithFormAvatarElement, cardSectionElement, popupWithFormMestoElement,
-  popupWithDeleteCardElement, addCardButtonHandler, popupProfileButtonHandler, 
+  popupWithDeleteCardElement, addCardButtonHandler, popupProfileButtonHandler,
   popupAvatarButtonHandler, handleDeleteClick,
   formSelectors, buttonOpenPopupProfile, formProfile, buttonOpenPopupAddNewCard,
-  formAddNewCard, formAddNewCardValidator, formProfileValidator, formAvatar, 
+  formAddNewCard, formAddNewCardValidator, formProfileValidator, formAvatar,
   formAvatarValidator, buttonOpenPopupAvatar, formDelete, formDeleteValidator,
 } from '../utils/constants.js';
-
-/*ДЛЯ РЕДАКТИРОВАНИЯ ФОРМЫ ДОБАВЛЕНИЯ КАРТОЧКИ МЕСТА*/
-//*Создаем и возвращаем все карточки*/
-/*самовызывающаяся асинхронная функция*/
-(async () => {
-  api.getInitialCards()  ///3 //api.getAllTodos
-    .then((data) => {
-      cardSectionElement.renderItems(data);//в классе Секцион вызвать функцию renderItems 
-      //console.log(data)//это массив с карточками
-      //console.log(cardSectionElement);//секция с карточками
-    });
-})();//самовызывающаяся асинхронная функция
 
 //при открытии формы добавления карточки - заполнение по умолчанию
 buttonOpenPopupAddNewCard.addEventListener('click', addCardButtonHandler);
@@ -71,25 +59,26 @@ function handleLikeClick(card) {
   }
 }
 //ФУНКЦИЯ СОЗДАЕТ КАРТОЧКУ И ВОЗВРАЩАЕТ НАРУЖУ
-export function createCard(data) {
+export function createCard(data, _id) {
   const card = new Card(data, '.template', { //передаем три аргумента: обьект с данными, 
     //метод удаления карты по id, селектор темплейта
     handleOpenPopupImage: popupWithImageElement.open,
     handleDeleteClick: () => handleDeleteClick(card),
     handleLikeClick: () => handleLikeClick(card),
-  }, userInfoElement.getUserId())
-  return card.generateCard();//удаление, открытие, лайк
+  }, userInfoElement.getUserId())//userId  
+  return card.generateCard();//удаление, открытие, лайк    
 }
+
 // ЗАПРОС ДАННЫХ КАРТОЧЕК И ПОЛЬЗОВАТЕЛЯ
 //!!!Массив промиссов в нем и данные о карточках и о пользователях
 // часть данных о пользователях прокидывать в карточку
+//let userIdCard;
 Promise.all([api.getUserCardsData(), api.getInitialCards()])
   .then(([UserInfoAnswer, cardsAnswer]) => {
-    let userIdCard;
-    userIdCard = UserInfoAnswer._id;
+    let userId;
     userInfoElement.setUserInfo(UserInfoAnswer);
     cardSectionElement.renderItems(cardsAnswer);
-
+    userId = UserInfoAnswer._id;
   })
   .catch((e) => console.error(e?.reason || e?.message));
 
@@ -99,3 +88,15 @@ popupWithFormProfileElement.setEventListeners();
 popupWithFormAvatarElement.setEventListeners();
 popupWithFormMestoElement.setEventListeners();
 popupWithDeleteCardElement.setEventListeners();
+
+/*ДЛЯ РЕДАКТИРОВАНИЯ ФОРМЫ ДОБАВЛЕНИЯ КАРТОЧКИ МЕСТА*/
+//*Создаем и возвращаем все карточки*/
+/*самовызывающаяся асинхронная функция*/
+/*(async () => {
+  api.getInitialCards()  ///3 //api.getAllTodos
+    .then((data) => {
+      cardSectionElement.renderItems(data);//в классе Секцион вызвать функцию renderItems 
+      //console.log(data)//это массив с карточками
+      //console.log(cardSectionElement);//секция с карточками
+    });
+})();//самовызывающаяся асинхронная функция*/

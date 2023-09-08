@@ -6,10 +6,10 @@
   font-weight: 400;
   font-size: 12px;
   line-height: 15px;
-  color: red;
-  white-space: normal;
+  color: red; 
   min-height: 30px;
-
+  word-wrap:break-word;
+  overflow: hidden; 
 }
 
 @media screen and (max-width:320px) {

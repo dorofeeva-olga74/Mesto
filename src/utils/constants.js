@@ -78,7 +78,7 @@ const cardSectionElement = new Section((data) => { //отвечает за от�
   const cardElement = createCard(data);//форма карточки - template элемент     
   cardSectionElement.addItem(cardElement);//// Добавляем в DOM
 },
-containerSelector//контейнер с карточками
+  containerSelector//контейнер с карточками
 );
 //Создание карточки через форму //сабмит 
 const popupWithFormMestoElement = new PopupWithForm('.popup_addplace_open', (data) => {
@@ -147,33 +147,18 @@ const handleDeleteClick = (id, card) => {
   popupWithDeleteCardElement.changeSubmitButtonText('Да');
   popupWithDeleteCardElement.open(id, card);
 }
-
 //для формы добавления нового профиля
 const buttonOpenPopupProfile = document.querySelector(".profile__button_add_change");//кнопка открытия формы 
-//const nameInputProfile = document.querySelector("#name-input");
-//const proffessionInputProfile = document.querySelector("#proffession-input");
 const formProfile = document.forms["edit-form"];//сама форма //нахожу форму заполнения профиля по name
 // для формы добавления места
 const buttonOpenPopupAddNewCard = document.querySelector('.profile__button_add_card');//кнопка открытия формы
 const formAddNewCard = document.forms['add-place-form'];//нахожу форму добавления места по name
-//const nameInputAddNewCard = document.querySelector(".popup__input_card_name");//значения полей формы контента
-//const linkImputAddNewCard = document.querySelector(".popup__input_card_link");//значения полей формы контента
-//const buttonDeleteCard = document.querySelector(".delete-button");//нахожу кнопку удаления карты
 //для формы изменения аватара
 const formAvatar = document.forms["avatar-form"];//сама форма //нахожу форму изменения аватара по name
 const buttonOpenPopupAvatar = document.querySelector('.profile__avatar-set');
 //для формы удаления карточки
 const formDelete = document.forms["delete-card-form"];//сама форма //нахожу форму удаления карточки по name
-//const buttonOpenPopupDelete = document.querySelector("element__delete");
-////////////////
-// для формы добавления места
-/*const buttonOpenPopupAddNewCard = document.querySelector('.profile__button_add_card');//кнопка открытия формы
-const popupAddNewCard = document.querySelector('#addPlacePopup');//форма попапа по id - обертка
-const nameInputAddNewCard = document.querySelector(".popup__input_card_name");//значения полей формы контента
-const linkImputAddNewCard = document.querySelector(".popup__input_card_link");//значения полей формы контента
-const formAddNewCard = document.forms['add-place-form'];//нахожу форму добавления места по name
-const cards = document.querySelector('.elements');//*/
-//////////////////////////////////////
+
 //объект с классами и селекторами для валидации форм
 const formSelectors = {
   formSelector: '.popup__form',// форма
@@ -194,9 +179,9 @@ const formAvatarValidator = new FormValidator(formSelectors, formAvatar);
 const formDeleteValidator = new FormValidator(formSelectors, formDelete);
 
 export {
-  api, popupWithImageElement, userInfoElement, popupWithFormProfileElement, 
-  popupWithFormAvatarElement, cardSectionElement, popupWithFormMestoElement, 
-  popupWithDeleteCardElement, addCardButtonHandler, popupProfileButtonHandler, 
+  api, popupWithImageElement, userInfoElement, popupWithFormProfileElement,
+  popupWithFormAvatarElement, cardSectionElement, popupWithFormMestoElement,
+  popupWithDeleteCardElement, addCardButtonHandler, popupProfileButtonHandler,
   popupAvatarButtonHandler, handleDeleteClick,
   formSelectors, buttonOpenPopupProfile, formProfile, buttonOpenPopupAddNewCard,
   formAddNewCard, formAddNewCardValidator, formProfileValidator, formAvatar,

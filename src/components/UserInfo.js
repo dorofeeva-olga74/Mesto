@@ -20,9 +20,11 @@ export class UserInfo {
     this._avatarFoto.src = avatar;
     this._userId = _id;//мой ID!!!    
   }
+
   getUserId() {
     return this._userId;
   }
+
   setAvatar(avatarLink) {
     this._avatarFoto.src = avatarLink;
   }
